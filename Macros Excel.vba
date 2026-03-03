@@ -289,12 +289,8 @@ Function CheckValidOctet(ip As String) As Boolean
     fourthOctet = Right(ip, 3)
     
     If IsNumeric(firstOctet) And IsNumeric(secondOctet) And IsNumeric(thirdOctet) And IsNumeric(fourthOctet) Then
-        If firstOctet = "10" And secondOctet = "162" Then
-            If CInt(thirdOctet) > 0 And CInt(thirdOctet) <= 255 And CInt(fourthOctet) > 0 And CInt(fourthOctet) <= 255 Then
-                CheckValidOctet = True
-            Else
-                CheckValidOctet = False
-            End If
+        If CInt(thirdOctet) > 0 And CInt(thirdOctet) <= 255 And CInt(fourthOctet) > 0 And CInt(fourthOctet) <= 255 Then
+            CheckValidOctet = True
         Else
             CheckValidOctet = False
         End If
@@ -365,6 +361,7 @@ Sub RemoverLinhasDuplicadas()
            "Linhas removidas: " & removidas & vbCrLf & _
            "Total após remoção: " & (totalAntes - removidas), vbInformation, "Resumo da Limpeza"
 End Sub
+
 
 
 
